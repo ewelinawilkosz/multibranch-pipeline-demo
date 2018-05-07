@@ -12,6 +12,10 @@ pipeline {
                 echo 'Testing on master..'
             }
         }
+        stage('Feature Test') {
+            when { branch "feature/*" }
+            echo 'testing feature on ' + env.BRANCH_NAME    
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying on master....'
